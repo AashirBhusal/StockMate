@@ -31,3 +31,4 @@ make_pdf.py
 *.html
 __pycache__/
 .env.example
+PLAN.md
