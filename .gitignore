@@ -1,0 +1,33 @@
+# ---- Secrets ----
+.env
+*.env
+!.env.example
+
+# ---- Visual Studio / .NET ----
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userprefs
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# ---- Local database + build artefacts ----
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# ---- OS ----
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- Local tooling, not part of the assignment ----
+make_pdf.py
+*.html
+__pycache__/
+.env.example
