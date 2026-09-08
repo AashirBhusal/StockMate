@@ -25,7 +25,7 @@ and consumables that are about to expire.
 ## How to run it
 
 ```
-git clone https://github.com/<username>/StockMate.git
+git clone https://github.com/AashirBhusal/StockMate.git
 cd StockMate
 dotnet run --project StockMate
 ```
