@@ -16,6 +16,16 @@ delivery arrives and an **issue** when stock is taken out, and each one saves th
 the staff member's name. When the program opens it warns about items that are running low
 and consumables that are about to expire.
 
+## Screenshots
+
+The main window, with the stock list, the category filter and the warnings shown on start-up:
+
+![StockMate main window](docs/screenshots/main-window.png)
+
+Trying to take out more stock than there is:
+
+![Not enough stock warning](docs/screenshots/not-enough-stock.png)
+
 ## What you need
 
 - Windows 10 or 11
@@ -60,10 +70,12 @@ StockMate/
 - [x] Milestone 1 proposal
 - [x] Project set up
 - [x] Models: `StockItem`, `ConsumableItem`, `DurableItem`, `IReportable`, `InsufficientStockException`
-- [x] Database and saving (FR-01, FR-02)
+- [x] Database and saving; add and edit items (FR-01, editing half of FR-02)
 - [x] Main window with the item list and category filter (FR-05)
 - [x] Receipt and issue screens (FR-03, FR-04)
 - [x] Low stock and expiry warnings (FR-06)
+- [x] Milestone 2 progress report
+- [ ] Deactivate button so a retired item keeps its history (rest of FR-02)
 - [ ] History screen (FR-07)
 - [ ] CSV export (FR-08)
 
