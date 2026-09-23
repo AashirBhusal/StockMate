@@ -168,6 +168,38 @@ namespace StockMate.Forms
             }
         }
 
+        // Turns an item off instead of deleting it. Its Transactions rows are
+        // kept, so the history stays correct; it just no longer shows in the list.
+        private void btnDeactivate_Click(object sender, EventArgs e)
+        {
+            StockItem selected = GetSelectedItem();
+            if (selected == null)
+            {
+                MessageBox.Show("Pick an item in the list first.", "StockMate");
+                return;
+            }
+
+            DialogResult answer = MessageBox.Show(
+                "Deactivate \"" + selected.Name + "\"?" + Environment.NewLine + Environment.NewLine +
+                "It will disappear from the stock list, but its receipts and issues will be kept.",
+                "Deactivate item", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (answer != DialogResult.Yes)
+                return;
+
+            try
+            {
+                selected.IsActive = false;
+                _database.UpdateItem(selected);
+                RefreshAll();
+            }
+            catch (Exception ex)
+            {
+                ShowError("Could not deactivate the item.", ex);
+            }
+        }
+
         private void btnReceive_Click(object sender, EventArgs e)
         {
             RecordMovement("Receipt");

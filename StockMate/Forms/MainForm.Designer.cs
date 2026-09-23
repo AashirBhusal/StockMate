@@ -33,6 +33,7 @@ namespace StockMate.Forms
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReceive = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
+            this.btnDeactivate = new System.Windows.Forms.Button();
             this.lblWarnings = new System.Windows.Forms.Label();
             this.lstWarnings = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdItems)).BeginInit();
@@ -139,6 +140,14 @@ namespace StockMate.Forms
             this.btnIssue.UseVisualStyleBackColor = true;
             this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
 
+            // btnDeactivate
+            this.btnDeactivate.Location = new System.Drawing.Point(730, 300);
+            this.btnDeactivate.Name = "btnDeactivate";
+            this.btnDeactivate.Size = new System.Drawing.Size(220, 34);
+            this.btnDeactivate.Text = "Deactivate item";
+            this.btnDeactivate.UseVisualStyleBackColor = true;
+            this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
+
             // lblWarnings
             this.lblWarnings.AutoSize = true;
             this.lblWarnings.Location = new System.Drawing.Point(14, 384);
@@ -164,6 +173,7 @@ namespace StockMate.Forms
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnReceive);
             this.Controls.Add(this.btnIssue);
+            this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.lblWarnings);
             this.Controls.Add(this.lstWarnings);
             this.Name = "MainForm";
@@ -191,6 +201,7 @@ namespace StockMate.Forms
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnReceive;
         private System.Windows.Forms.Button btnIssue;
+        private System.Windows.Forms.Button btnDeactivate;
         private System.Windows.Forms.Label lblWarnings;
         private System.Windows.Forms.ListBox lstWarnings;
     }
