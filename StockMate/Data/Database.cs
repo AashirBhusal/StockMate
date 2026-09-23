@@ -205,6 +205,39 @@ namespace StockMate.Data
             }
         }
 
+        // Every receipt and issue for one item, newest first.
+        public List<StockMovement> GetHistory(int itemId)
+        {
+            List<StockMovement> movements = new List<StockMovement>();
+
+            using (SqliteConnection connection = Open())
+            {
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText =
+                    "SELECT * FROM Transactions WHERE ItemId = $id" +
+                    " ORDER BY TransactionDate DESC, TransactionId DESC";
+                command.Parameters.AddWithValue("$id", itemId);
+
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        StockMovement movement = new StockMovement(
+                            reader.GetInt32(reader.GetOrdinal("ItemId")),
+                            reader.GetString(reader.GetOrdinal("TransactionType")),
+                            reader.GetInt32(reader.GetOrdinal("Quantity")),
+                            DateTime.Parse(reader.GetString(reader.GetOrdinal("TransactionDate"))),
+                            reader.GetString(reader.GetOrdinal("StaffName")));
+
+                        movement.TransactionId = reader.GetInt32(reader.GetOrdinal("TransactionId"));
+                        movements.Add(movement);
+                    }
+                }
+            }
+
+            return movements;
+        }
+
         // The list of categories already used, for the filter box.
         public List<string> GetCategories()
         {
