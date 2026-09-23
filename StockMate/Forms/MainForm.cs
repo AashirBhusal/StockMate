@@ -168,6 +168,27 @@ namespace StockMate.Forms
             }
         }
 
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            StockItem selected = GetSelectedItem();
+            if (selected == null)
+            {
+                MessageBox.Show("Pick an item in the list first.", "StockMate");
+                return;
+            }
+
+            try
+            {
+                List<StockMovement> history = _database.GetHistory(selected.ItemId);
+                HistoryForm form = new HistoryForm(selected, history);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ShowError("Could not load the history.", ex);
+            }
+        }
+
         // Turns an item off instead of deleting it. Its Transactions rows are
         // kept, so the history stays correct; it just no longer shows in the list.
         private void btnDeactivate_Click(object sender, EventArgs e)

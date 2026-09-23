@@ -33,6 +33,7 @@ namespace StockMate.Forms
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReceive = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
+            this.btnHistory = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
             this.lblWarnings = new System.Windows.Forms.Label();
             this.lstWarnings = new System.Windows.Forms.ListBox();
@@ -140,6 +141,14 @@ namespace StockMate.Forms
             this.btnIssue.UseVisualStyleBackColor = true;
             this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
 
+            // btnHistory
+            this.btnHistory.Location = new System.Drawing.Point(730, 246);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(220, 34);
+            this.btnHistory.Text = "View history";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+
             // btnDeactivate
             this.btnDeactivate.Location = new System.Drawing.Point(730, 300);
             this.btnDeactivate.Name = "btnDeactivate";
@@ -173,6 +182,7 @@ namespace StockMate.Forms
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnReceive);
             this.Controls.Add(this.btnIssue);
+            this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.lblWarnings);
             this.Controls.Add(this.lstWarnings);
@@ -201,6 +211,7 @@ namespace StockMate.Forms
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnReceive;
         private System.Windows.Forms.Button btnIssue;
+        private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnDeactivate;
         private System.Windows.Forms.Label lblWarnings;
         private System.Windows.Forms.ListBox lstWarnings;
