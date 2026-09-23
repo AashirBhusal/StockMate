@@ -14,7 +14,9 @@ and throw stock away when it goes out of date.
 StockMate keeps a count of every item at one motel. Staff record a **receipt** when a
 delivery arrives and an **issue** when stock is taken out, and each one saves the date and
 the staff member's name. When the program opens it warns about items that are running low
-and consumables that are about to expire.
+and consumables that are about to expire. Any item's full history of receipts and issues can
+be viewed, and an item that is no longer stocked can be deactivated without losing that
+history.
 
 ## Screenshots
 
@@ -25,6 +27,10 @@ The main window, with the stock list, the category filter and the warnings shown
 Trying to take out more stock than there is:
 
 ![Not enough stock warning](docs/screenshots/not-enough-stock.png)
+
+The history of one item, newest first:
+
+![History window](docs/screenshots/history-window.png)
 
 ## What you need
 
@@ -58,11 +64,11 @@ StockMate/
 
 | Principle | Where |
 |---|---|
-| Classes and objects | `StockItem`, `ConsumableItem`, `DurableItem` |
+| Classes and objects | `StockItem`, `ConsumableItem`, `DurableItem`, `StockMovement`, `Database` |
 | Encapsulation | `QuantityOnHand` has a private setter, so it can only change through `Receive()` and `Issue()` |
 | Inheritance | `ConsumableItem` and `DurableItem` both extend `StockItem` |
-| Polymorphism | `NeedsAttention()` is overridden, so each type decides for itself |
-| Abstraction | `StockItem` is abstract; `IReportable` is an interface |
+| Polymorphism | `NeedsAttention()` is overridden, so each type decides for itself; `MainForm` calls it on a `List<StockItem>` without checking the type |
+| Abstraction | `StockItem` is abstract; `IReportable` is an interface implemented by both `StockItem` and `StockMovement`, which are otherwise unrelated |
 | Exception handling | `InsufficientStockException` is thrown by `Issue()` and caught by the form |
 
 ## Progress
@@ -75,9 +81,11 @@ StockMate/
 - [x] Receipt and issue screens (FR-03, FR-04)
 - [x] Low stock and expiry warnings (FR-06)
 - [x] Milestone 2 progress report
-- [ ] Deactivate button so a retired item keeps its history (rest of FR-02)
-- [ ] History screen (FR-07)
+- [x] Deactivate button so a retired item keeps its history (rest of FR-02)
+- [x] History screen, with the `StockMovement` class (FR-07)
 - [ ] CSV export (FR-08)
+- [ ] Test scenarios and fixes
+- [ ] Milestone 3 reflection
 
 ## References and Tools Used
 
