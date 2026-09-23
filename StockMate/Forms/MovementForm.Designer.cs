@@ -40,7 +40,7 @@ namespace StockMate.Forms
             this.lblAction.Text = "How many units?";
 
             // numQuantity
-            this.numQuantity.Location = new System.Drawing.Point(200, 52);
+            this.numQuantity.Location = new System.Drawing.Point(244, 52);
             this.numQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numQuantity.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             this.numQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -54,12 +54,12 @@ namespace StockMate.Forms
             this.lblStaff.Text = "Your name:";
 
             // txtStaff
-            this.txtStaff.Location = new System.Drawing.Point(200, 87);
+            this.txtStaff.Location = new System.Drawing.Point(244, 87);
             this.txtStaff.Name = "txtStaff";
             this.txtStaff.Size = new System.Drawing.Size(160, 23);
 
             // btnOk
-            this.btnOk.Location = new System.Drawing.Point(160, 132);
+            this.btnOk.Location = new System.Drawing.Point(204, 132);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(96, 30);
             this.btnOk.Text = "Save";
@@ -67,7 +67,7 @@ namespace StockMate.Forms
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
 
             // btnCancel
-            this.btnCancel.Location = new System.Drawing.Point(264, 132);
+            this.btnCancel.Location = new System.Drawing.Point(308, 132);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 30);
             this.btnCancel.Text = "Cancel";
@@ -79,7 +79,7 @@ namespace StockMate.Forms
             this.CancelButton = this.btnCancel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 180);
+            this.ClientSize = new System.Drawing.Size(428, 180);
             this.Controls.Add(this.lblItem);
             this.Controls.Add(this.lblAction);
             this.Controls.Add(this.numQuantity);
