@@ -34,6 +34,7 @@ namespace StockMate.Forms
             this.btnReceive = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnHistory = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
             this.lblWarnings = new System.Windows.Forms.Label();
             this.lstWarnings = new System.Windows.Forms.ListBox();
@@ -149,8 +150,16 @@ namespace StockMate.Forms
             this.btnHistory.UseVisualStyleBackColor = true;
             this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
 
+            // btnExport
+            this.btnExport.Location = new System.Drawing.Point(730, 290);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(220, 34);
+            this.btnExport.Text = "Export to CSV";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+
             // btnDeactivate
-            this.btnDeactivate.Location = new System.Drawing.Point(730, 300);
+            this.btnDeactivate.Location = new System.Drawing.Point(730, 336);
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(220, 34);
             this.btnDeactivate.Text = "Deactivate item";
@@ -183,6 +192,7 @@ namespace StockMate.Forms
             this.Controls.Add(this.btnReceive);
             this.Controls.Add(this.btnIssue);
             this.Controls.Add(this.btnHistory);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.lblWarnings);
             this.Controls.Add(this.lstWarnings);
@@ -212,6 +222,7 @@ namespace StockMate.Forms
         private System.Windows.Forms.Button btnReceive;
         private System.Windows.Forms.Button btnIssue;
         private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnDeactivate;
         private System.Windows.Forms.Label lblWarnings;
         private System.Windows.Forms.ListBox lstWarnings;

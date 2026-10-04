@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using StockMate.Data;
 using StockMate.Models;
@@ -55,15 +56,26 @@ namespace StockMate.Forms
 
         private const string AllCategories = "All categories";
 
+        // The items the grid is showing: everything, or one category.
+        private List<StockItem> GetVisibleItems()
+        {
+            List<StockItem> visible = new List<StockItem>();
+
+            foreach (StockItem item in _items)
+            {
+                if (cboCategory.Text == AllCategories || item.Category == cboCategory.Text)
+                    visible.Add(item);
+            }
+
+            return visible;
+        }
+
         private void ShowItems()
         {
             grdItems.Rows.Clear();
 
-            foreach (StockItem item in _items)
+            foreach (StockItem item in GetVisibleItems())
             {
-                if (cboCategory.Text != AllCategories && item.Category != cboCategory.Text)
-                    continue;
-
                 grdItems.Rows.Add(
                     item.ItemId,
                     item.Name,
@@ -164,6 +176,51 @@ namespace StockMate.Forms
                 catch (Exception ex)
                 {
                     ShowError("Could not save the changes.", ex);
+                }
+            }
+        }
+
+        // Saves whatever the grid is showing, so choosing a category first
+        // exports just that category.
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            List<StockItem> visible = GetVisibleItems();
+            if (visible.Count == 0)
+            {
+                MessageBox.Show("There are no items to export.", "StockMate");
+                return;
+            }
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "CSV file (*.csv)|*.csv";
+                dialog.FileName = "stock-" + DateTime.Today.ToString("yyyy-MM-dd") + ".csv";
+
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    CsvExporter exporter = new CsvExporter();
+                    decimal totalValue = exporter.Export(visible, dialog.FileName);
+
+                    MessageBox.Show(
+                        "Exported " + visible.Count + " item(s)." + Environment.NewLine +
+                        "Total stock value: " + totalValue.ToString("C"),
+                        "Export finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (IOException ex)
+                {
+                    // The usual cause is that an earlier export is still open
+                    // in Excel, which locks the file.
+                    MessageBox.Show(
+                        "The file could not be written. If it is open in Excel, close it and try again." +
+                        Environment.NewLine + Environment.NewLine + ex.Message,
+                        "Export failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    ShowError("Could not export the stock list.", ex);
                 }
             }
         }
