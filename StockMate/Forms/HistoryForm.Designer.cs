@@ -23,6 +23,7 @@ namespace StockMate.Forms
             this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdHistory)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +65,14 @@ namespace StockMate.Forms
             this.colStaff.Name = "colStaff";
             this.colStaff.Width = 240;
 
+            // btnCopy
+            this.btnCopy.Location = new System.Drawing.Point(14, 352);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(130, 30);
+            this.btnCopy.Text = "Copy as text";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+
             // btnClose
             this.btnClose.Location = new System.Drawing.Point(510, 352);
             this.btnClose.Name = "btnClose";
@@ -79,6 +88,7 @@ namespace StockMate.Forms
             this.ClientSize = new System.Drawing.Size(620, 396);
             this.Controls.Add(this.lblSummary);
             this.Controls.Add(this.grdHistory);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -98,6 +108,7 @@ namespace StockMate.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn colType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
+        private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnClose;
     }
 }
