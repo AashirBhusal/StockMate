@@ -35,6 +35,13 @@ namespace StockMate.Forms
             txtName.Text = _existingItem.Name;
             txtCategory.Text = _existingItem.Category;
             txtUnit.Text = _existingItem.Unit;
+
+            // The quantity box is display-only when editing, but it still has
+            // a maximum, and giving it a bigger number throws. Deliveries can
+            // push the stock past that maximum, so raise it first.
+            if (_existingItem.QuantityOnHand > numQuantity.Maximum)
+                numQuantity.Maximum = _existingItem.QuantityOnHand;
+
             numQuantity.Value = _existingItem.QuantityOnHand;
             numReorder.Value = _existingItem.ReorderLevel;
             numCost.Value = _existingItem.UnitCost;
