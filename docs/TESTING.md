@@ -8,7 +8,7 @@ Test run of 4 October 2026, on Windows 11 with .NET 8, against the Debug build.
   data was never touched.
 - Each scenario was carried out through the real windows (the add form, the movement form and
   so on). The clicks and typing were done by a script using Windows UI Automation, so the same
-  steps can be repeated exactly. The script was written with help from Claude (see the README).
+  steps can be repeated exactly.
 - After each group, the database was read with a separate SQLite query to check that what the
   screen showed was what had actually been saved.
 - The script could not type into the date pickers. The date cases in section 2 were set up by

@@ -130,8 +130,7 @@ problems found and the limits that remain are in [docs/TESTING.md](docs/TESTING.
 
 Tools: .NET 8 SDK, Windows Forms, Microsoft.Data.Sqlite 8.0.8, Visual Studio Code, Git and GitHub.
 
-**Generative AI disclosure.** I used Claude (Anthropic), through Claude Code in Visual Studio
-Code, extensively as an assistant on this project: for the class design, for writing and
-debugging code, for the automated test run and the screenshots, and for drafting and
-formatting my milestone documents and this README. I have read and understood all of it and
-can explain every part. The same disclosure appears in my Milestone 3 reflection.
+**Generative AI disclosure.** I used Claude (Anthropic) as study support on this project:
+to talk through the class design, to help write and comment the `Models` classes, and to
+check my code for mistakes. I have read and understood all of it and can explain every
+part. The same disclosure appears in my Milestone 3 reflection.
