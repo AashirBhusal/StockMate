@@ -50,7 +50,12 @@ namespace StockMate.Models
                 return Name + " has expired - remove it from the storeroom.";
 
             if (IsNearExpiry)
+            {
+                if (DaysUntilExpiry == 0)
+                    return Name + " expires today - use it first.";
+
                 return Name + " expires in " + DaysUntilExpiry + " day(s) - use it first.";
+            }
 
             if (IsLowStock)
                 return Name + " is low: " + QuantityOnHand + " " + Unit + " left.";
