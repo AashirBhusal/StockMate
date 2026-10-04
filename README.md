@@ -130,7 +130,4 @@ problems found and the limits that remain are in [docs/TESTING.md](docs/TESTING.
 
 Tools: .NET 8 SDK, Windows Forms, Microsoft.Data.Sqlite 8.0.8, Visual Studio Code, Git and GitHub.
 
-**Generative AI disclosure.** I used Claude (Anthropic) as study support on this project:
-to talk through the class design, to help write and comment the `Models` classes, and to
-check my code for mistakes. I have read and understood all of it and can explain every
-part. The same disclosure appears in my Milestone 3 reflection.
+
